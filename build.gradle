@@ -1,3 +1,4 @@
+
 buildscript {
 
     apply from: 'dependencies.gradle'
@@ -5,7 +6,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$versions.agp"

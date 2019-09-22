@@ -18,6 +18,7 @@ android {
             minifyEnabled true
             buildConfigField("String", "BASE_URL", '"https://api.petfinder.com"')
             buildConfigField("String", "API_KEY", "\"${PET_MATCH_API_KEY}\"")
+            buildConfigField("String", "SECRET", "\"${PET_MATCH_SECRET}\"")
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
@@ -25,6 +26,7 @@ android {
             minifyEnabled false
             buildConfigField("String", "BASE_URL", '"https://api.petfinder.com"')
             buildConfigField("String", "API_KEY", "\"${PET_MATCH_API_KEY}\"")
+            buildConfigField("String", "SECRET", "\"${PET_MATCH_SECRET}\"")
         }
     }
 
