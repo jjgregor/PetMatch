@@ -6,7 +6,6 @@ import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -35,7 +34,6 @@ class NetworkModule {
     @Provides
     internal fun providePetFinderRestAdapter(
         client: OkHttpClient,
-        headerInterceptor: Interceptor,
         moshi: Moshi
     ): Retrofit {
         val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
@@ -49,7 +47,7 @@ class NetworkModule {
             .addInterceptor(interceptor)
             .build()
         return Retrofit.Builder().baseUrl(BuildConfig.BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(newClient)
             .build()

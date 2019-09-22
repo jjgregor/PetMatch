@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -15,12 +16,14 @@ android {
     buildTypes {
         release {
             minifyEnabled true
+            buildConfigField("String", "BASE_URL", '"https://api.petfinder.com"')
+            buildConfigField("String", "API_KEY", "\"${PET_MATCH_API_KEY}\"")
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
         debug {
             minifyEnabled false
-            buildConfigField("String", "BASE_URL", "https://api.petfinder.com")
+            buildConfigField("String", "BASE_URL", '"https://api.petfinder.com"')
             buildConfigField("String", "API_KEY", "\"${PET_MATCH_API_KEY}\"")
         }
     }
@@ -52,6 +55,9 @@ dependencies {
     implementation libs.rxKotlin
     implementation libs.rxJava2
     implementation libs.kotlin.stdlib
+
+    kapt libs.dagger.compiler
+    kapt libs.dagger.androidProcessor
 
     testImplementation testLibs.junit
     testImplementation testLibs.assertJ

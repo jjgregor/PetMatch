@@ -10,4 +10,4 @@ import javax.inject.Singleton
         NetworkModule::class
     ]
 )
-interface PetMatchComponent
+interface AppComponent
