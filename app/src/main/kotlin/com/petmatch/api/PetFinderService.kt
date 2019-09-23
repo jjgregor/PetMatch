@@ -1,7 +1,6 @@
-package com.api.service
+package com.petmatch.api
 
-import com.api.datamodel.AuthToken
-import io.reactivex.Observable
+import io.reactivex.Single
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
@@ -12,10 +11,10 @@ private const val CLIENT_SECRET = "client_secret"
 interface PetFinderService {
 
     @FormUrlEncoded
-    @POST("/token")
+    @POST("/v2/oauth2/token")
     fun getAccessToken(
         @Field(CLIENT_ID) id: String,
         @Field(CLIENT_SECRET) secret: String
-    ): Observable<AuthToken>
+    ): Single<AuthToken>
 
 }

@@ -19,6 +19,9 @@ android {
             buildConfigField("String", "BASE_URL", '"https://api.petfinder.com"')
             buildConfigField("String", "API_KEY", "\"${PET_MATCH_API_KEY}\"")
             buildConfigField("String", "SECRET", "\"${PET_MATCH_SECRET}\"")
+            buildConfigField("String", "AUTHORIZATION_HEADER", '"Authorization"')
+            buildConfigField("String", "BEARER_HEADER", '"Bearer "')
+
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
@@ -27,6 +30,8 @@ android {
             buildConfigField("String", "BASE_URL", '"https://api.petfinder.com"')
             buildConfigField("String", "API_KEY", "\"${PET_MATCH_API_KEY}\"")
             buildConfigField("String", "SECRET", "\"${PET_MATCH_SECRET}\"")
+            buildConfigField("String", "AUTHORIZATION_HEADER", '"Authorization"')
+            buildConfigField("String", "BEARER_HEADER", '"Bearer "')
         }
     }
 
@@ -40,8 +45,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(':api')
-
     implementation libs.androidx.appCompat
     implementation libs.androidx.constraintLayout
     implementation libs.androidx.core.ktx
@@ -50,10 +53,12 @@ dependencies {
     implementation libs.dagger.runtime
     implementation libs.okhttp
     implementation libs.okhttpLogging
+    implementation libs.playServices
     implementation libs.moshi
     implementation libs.retrofit
     implementation libs.retrofitConverter
     implementation libs.retrofitRxAdapter
+    implementation libs.rxAndroid2
     implementation libs.rxKotlin
     implementation libs.rxJava2
     implementation libs.kotlin.stdlib
