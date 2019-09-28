@@ -1,3 +1,5 @@
-include ':PetMatchApp', ':data', ':domain'
+include ':PetMatchApp'
+include ':data'
+include ':domain'
 include ':api'
-rootProject.name='PetMatch'
+rootProject.name = 'PetMatch'
