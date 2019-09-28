@@ -1,6 +1,6 @@
 package com.jmoney.api.service
 
-import com.jmoney.api.datamodel.AuthToken
+import com.jmoney.api.datamodel.ApiAuthToken
 import io.reactivex.Single
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -16,6 +16,6 @@ interface PetFinderService {
     fun getAccessToken(
         @Field(CLIENT_ID) id: String,
         @Field(CLIENT_SECRET) secret: String
-    ): Single<AuthToken>
+    ): Single<ApiAuthToken>
 
 }

@@ -1,9 +1,8 @@
 package com.jmoney.api.interceptor
 
 import android.util.Log
-import com.jmoney.api.datamodel.AuthToken
-import com.jmoney.domain.provider.AccessTokenProvider
-import com.jmoney.domain.useacse.FetchAccessToken
+import com.jmoney.domain.datamodel.AuthToken
+import com.jmoney.domain.useacse.FetchAccessTokenRepository
 import okhttp3.Authenticator
 import okhttp3.Request
 import okhttp3.Response
@@ -14,15 +13,13 @@ private const val AUTHORIZATION = "Authorization"
 private const val BEARER = "Bearer "
 
 class PetFinerAuthenticator @Inject constructor(
-    private val fetchAccessToken: FetchAccessToken,
-    private val accessTokenProvider: AccessTokenProvider
+    private val fetchAccessTokenRepository: FetchAccessTokenRepository
 ) : Authenticator {
 
     override fun authenticate(route: Route?, response: Response): Request? {
         var token: AuthToken? = null
         try {
-            token = fetchAccessToken().blockingGet()
-            accessTokenProvider.saveAccessToken(token.accessToken)
+            token = fetchAccessTokenRepository().blockingGet()
         } catch (e: Exception) {
             Log.e("PetFinderAuthenticator", "Error fetching access token")
         }

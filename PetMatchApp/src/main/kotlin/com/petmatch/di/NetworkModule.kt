@@ -5,8 +5,8 @@ import com.jmoney.api.interceptor.AuthenticationInterceptor
 import com.jmoney.api.interceptor.PetFinerAuthenticator
 import com.jmoney.api.service.PetFinderService
 import com.jmoney.domain.provider.AccessTokenProvider
+import com.jmoney.domain.useacse.FetchAccessTokenRepository
 import com.petmatch.BuildConfig
-import com.jmoney.domain.useacse.FetchAccessToken
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -41,14 +41,14 @@ class NetworkModule {
         tokenProvider: AccessTokenProvider,
         client: OkHttpClient,
         moshi: Moshi,
-        fetchAccessToken: FetchAccessToken
+        fetchAccessTokenRepository: FetchAccessTokenRepository
     ): Retrofit {
         val loggingInterceptor = HttpLoggingInterceptor().apply {
             this.level = HttpLoggingInterceptor.Level.BODY
         }
         val authenticationInterceptor =
             AuthenticationInterceptor(tokenProvider)
-        val petFinderAuthenticator = PetFinerAuthenticator(fetchAccessToken)
+        val petFinderAuthenticator = PetFinerAuthenticator(fetchAccessTokenRepository)
 
         val newClient = client.newBuilder()
             .connectTimeout(TIME_OUT, TimeUnit.SECONDS)

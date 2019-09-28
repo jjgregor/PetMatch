@@ -14,11 +14,16 @@ android {
     buildTypes {
         release {
             minifyEnabled true
+            buildConfigField("String", "API_KEY", "\"${PET_MATCH_API_KEY}\"")
+            buildConfigField("String", "SECRET", "\"${PET_MATCH_SECRET}\"")
+
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
         debug {
             minifyEnabled false
+            buildConfigField("String", "API_KEY", "\"${PET_MATCH_API_KEY}\"")
+            buildConfigField("String", "SECRET", "\"${PET_MATCH_SECRET}\"")
         }
     }
 
@@ -30,7 +35,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation projectLibs.api
     implementation projectLibs.domain
 
     implementation libs.javax.inject
+    implementation libs.rxJava2
 }
