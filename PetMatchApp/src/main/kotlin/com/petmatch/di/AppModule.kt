@@ -2,7 +2,9 @@ package com.petmatch.di
 
 import android.app.Application
 import com.jmoney.data.provider.AccessTokenDataProvider
+import com.jmoney.data.repository.AccessTokenDataRepository
 import com.jmoney.domain.provider.AccessTokenProvider
+import com.jmoney.domain.useacse.AccessTokenRepository
 import com.petmatch.common.AndroidSchedulers
 import com.petmatch.interfaces.Schedulers
 import dagger.Binds
@@ -17,9 +19,10 @@ class AppModule(private val application: Application) {
     interface Declarations {
 
         @Binds
-        fun provideAccessTokenProvider(
-            accessTokenDataProvider: AccessTokenDataProvider
-        ) : AccessTokenProvider
+        fun bindAccessTokenProvider(accessTokenDataProvider: AccessTokenDataProvider) : AccessTokenProvider
+
+        @Binds
+        fun bindAccessDataRepository(accessTokenDataRepository: AccessTokenDataRepository): AccessTokenRepository
 
         @Binds
         fun provideSchedulers(androidSchedulers: AndroidSchedulers) : Schedulers
