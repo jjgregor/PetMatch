@@ -48,20 +48,22 @@ dependencies {
     implementation libs.androidx.appCompat
     implementation libs.androidx.constraintLayout
     implementation libs.androidx.core.ktx
+    implementation libs.androidx.navigation.fragmentKtx
+    implementation libs.androidx.navigation.uiKtx
     implementation libs.dagger.android
     implementation libs.dagger.androidSupport
     implementation libs.dagger.runtime
+    implementation libs.kotlin.stdlib
+    implementation libs.moshi
     implementation libs.okhttp
     implementation libs.okhttpLogging
     implementation libs.playServices
-    implementation libs.moshi
     implementation libs.retrofit
     implementation libs.retrofitConverter
     implementation libs.retrofitRxAdapter
     implementation libs.rxAndroid2
     implementation libs.rxKotlin
     implementation libs.rxJava2
-    implementation libs.kotlin.stdlib
 
     kapt libs.dagger.compiler
     kapt libs.dagger.androidProcessor
