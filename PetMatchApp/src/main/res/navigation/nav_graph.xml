@@ -1,5 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/authFragment">
+
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.petmatch.fragment.AuthFragment"
+        android:label="AuthFragment" >
+        <action
+            android:id="@+id/action_authFragment_to_navigation"
+            app:destination="@id/navigation" />
+    </fragment>
+
+
+    <navigation
+        android:id="@+id/navigation"
+        app:startDestination="@id/searchFragment" >
+
+        <fragment
+            android:id="@+id/searchFragment"
+            android:name="com.petmatch.fragment.SearchFragment"
+            android:label="SearchFragment" >
+            <action
+                android:id="@+id/action_searchFragment_to_notificationFragment2"
+                app:destination="@id/notificationFragment" />
+            <action
+                android:id="@+id/action_searchFragment_to_settingsFragment2"
+                app:destination="@id/settingsFragment2" />
+        </fragment>
+        <fragment
+            android:id="@+id/notificationFragment"
+            android:name="com.petmatch.fragment.NotificationFragment"
+            android:label="NotificationFragment" >
+            <action
+                android:id="@+id/action_notificationFragment_to_searchFragment2"
+                app:destination="@id/searchFragment" />
+            <action
+                android:id="@+id/action_notificationFragment_to_settingsFragment2"
+                app:destination="@id/settingsFragment2" />
+        </fragment>
+        <fragment
+            android:id="@+id/settingsFragment2"
+            android:name="com.petmatch.fragment.SettingsFragment"
+            android:label="SettingsFragment" >
+            <action
+                android:id="@+id/action_settingsFragment2_to_searchFragment"
+                app:destination="@id/searchFragment" />
+            <action
+                android:id="@+id/action_settingsFragment2_to_notificationFragment"
+                app:destination="@id/notificationFragment" />
+        </fragment>
+    </navigation>
 
 </navigation>

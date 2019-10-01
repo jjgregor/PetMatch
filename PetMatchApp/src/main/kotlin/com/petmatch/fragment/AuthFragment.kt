@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.petmatch.R
 
-class SplashFragment : Fragment() {
+class AuthFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
