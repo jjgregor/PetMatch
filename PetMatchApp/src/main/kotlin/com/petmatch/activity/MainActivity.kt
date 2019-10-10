@@ -22,11 +22,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.base_nav_fragment) as NavHostFragment? ?: return
+
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-
-        val host: NavHostFragment = supportFragmentManager
-            .findFragmentById(R.id.base_nav_fragment) as NavHostFragment? ?: return
 
         val navController = host.navController
 
@@ -41,10 +40,7 @@ class MainActivity : AppCompatActivity() {
                 destination.id.toString()
             }
 
-            Toast.makeText(
-                this@MainActivity, "Navigated to $dest",
-                Toast.LENGTH_SHORT
-            ).show()
+            Toast.makeText(this@MainActivity, "Navigated to $dest", Toast.LENGTH_SHORT).show()
             Log.d("NavigationActivity", "Navigated to $dest")
         }
 

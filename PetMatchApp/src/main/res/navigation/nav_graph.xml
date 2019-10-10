@@ -1,55 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
-    app:startDestination="@id/authFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/start_nav_graph"
+    app:startDestination="@id/auth_fragment">
 
     <fragment
-        android:id="@+id/authFragment"
+        android:id="@+id/auth_fragment"
         android:name="com.petmatch.fragment.AuthFragment"
-        android:label="AuthFragment" >
+        android:label="AuthFragment">
         <action
             android:id="@+id/action_authFragment_to_navigation"
-            app:destination="@id/navigation" />
+            app:destination="@id/main_nav" />
     </fragment>
 
 
     <navigation
-        android:id="@+id/navigation"
-        app:startDestination="@id/searchFragment" >
+        android:id="@+id/main_nav"
+        app:startDestination="@id/search_dest">
 
         <fragment
-            android:id="@+id/searchFragment"
+            android:id="@+id/search_dest"
             android:name="com.petmatch.fragment.SearchFragment"
-            android:label="SearchFragment" >
+            android:label="SearchFragment">
             <action
-                android:id="@+id/action_searchFragment_to_notificationFragment2"
-                app:destination="@id/notificationFragment" />
+                android:id="@+id/action_searchFragment_to_notificationFragment"
+                app:destination="@id/notification_dest" />
             <action
-                android:id="@+id/action_searchFragment_to_settingsFragment2"
-                app:destination="@id/settingsFragment2" />
+                android:id="@+id/action_searchFragment_to_settingsFragment"
+                app:destination="@id/settings_dest" />
         </fragment>
+
         <fragment
-            android:id="@+id/notificationFragment"
+            android:id="@+id/notification_dest"
             android:name="com.petmatch.fragment.NotificationFragment"
-            android:label="NotificationFragment" >
+            android:label="NotificationFragment">
             <action
-                android:id="@+id/action_notificationFragment_to_searchFragment2"
-                app:destination="@id/searchFragment" />
+                android:id="@+id/action_notificationFragment_to_searchFragment"
+                app:destination="@id/search_dest" />
             <action
-                android:id="@+id/action_notificationFragment_to_settingsFragment2"
-                app:destination="@id/settingsFragment2" />
+                android:id="@+id/action_notificationFragment_to_settingsFragment"
+                app:destination="@id/settings_dest" />
         </fragment>
+
         <fragment
-            android:id="@+id/settingsFragment2"
+            android:id="@+id/settings_dest"
             android:name="com.petmatch.fragment.SettingsFragment"
-            android:label="SettingsFragment" >
+            android:label="SettingsFragment">
             <action
-                android:id="@+id/action_settingsFragment2_to_searchFragment"
-                app:destination="@id/searchFragment" />
+                android:id="@+id/action_settingsFragment_to_searchFragment"
+                app:destination="@id/search_dest" />
             <action
-                android:id="@+id/action_settingsFragment2_to_notificationFragment"
-                app:destination="@id/notificationFragment" />
+                android:id="@+id/action_settingsFragment_to_notificationFragment"
+                app:destination="@id/notification_dest" />
         </fragment>
+
     </navigation>
 
 </navigation>
