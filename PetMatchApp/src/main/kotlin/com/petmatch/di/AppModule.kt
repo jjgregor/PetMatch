@@ -23,9 +23,11 @@ class AppModule(private val application: Application) {
 
         @Binds
         fun bindAccessDataRepository(accessTokenDataRepository: AccessTokenDataRepository): AccessTokenRepository
+    }
 
-        @Binds
-        fun provideSchedulers(androidSchedulers: AndroidSchedulers) : Schedulers
+    @Provides
+    fun provideSchedulers(): Schedulers {
+        return AndroidSchedulers
     }
 
     @Provides

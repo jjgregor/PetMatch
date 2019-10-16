@@ -12,7 +12,7 @@ import javax.inject.Inject
 private const val AUTHORIZATION = "Authorization"
 private const val BEARER = "Bearer "
 
-class PetFinerAuthenticator @Inject constructor(
+class PetFinderAuthenticator @Inject constructor(
     private val fetchAccessToken: FetchAccessToken
 ) : Authenticator {
 

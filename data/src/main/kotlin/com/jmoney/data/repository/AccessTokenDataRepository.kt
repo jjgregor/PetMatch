@@ -19,6 +19,5 @@ class AccessTokenDataRepository @Inject constructor(
         return petFinderService.getAccessToken(BuildConfig.API_KEY, BuildConfig.SECRET)
             .map { authTokenAdapter.adapt(it) }
             .doOnSuccess { accessTokenDataRepository.saveAccessToken(it) }
-
     }
 }

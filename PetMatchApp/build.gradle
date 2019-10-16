@@ -16,18 +16,11 @@ android {
     buildTypes {
         release {
             minifyEnabled true
-            buildConfigField("String", "BASE_URL", '"https://api.petfinder.com"')
-            buildConfigField("String", "AUTHORIZATION_HEADER", '"Authorization"')
-            buildConfigField("String", "BEARER_HEADER", '"Bearer "')
-
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
         debug {
             minifyEnabled false
-            buildConfigField("String", "BASE_URL", '"https://api.petfinder.com"')
-            buildConfigField("String", "AUTHORIZATION_HEADER", '"Authorization"')
-            buildConfigField("String", "BEARER_HEADER", '"Bearer "')
         }
     }
 
@@ -48,15 +41,16 @@ dependencies {
     implementation libs.androidx.appCompat
     implementation libs.androidx.constraintLayout
     implementation libs.androidx.core.ktx
+    implementation libs.androidx.lifecycle.ext
     implementation libs.androidx.navigation.fragmentKtx
     implementation libs.androidx.navigation.uiKtx
     implementation libs.dagger.android
     implementation libs.dagger.androidSupport
     implementation libs.dagger.runtime
+    implementation libs.jsr305
     implementation libs.kotlin.stdlib
     implementation libs.moshi
     implementation libs.okhttp
-    implementation libs.okhttpLogging
     implementation libs.playServices
     implementation libs.retrofit
     implementation libs.retrofitConverter
@@ -64,6 +58,7 @@ dependencies {
     implementation libs.rxAndroid2
     implementation libs.rxKotlin
     implementation libs.rxJava2
+    implementation libs.timber
 
     kapt libs.dagger.compiler
     kapt libs.dagger.androidProcessor

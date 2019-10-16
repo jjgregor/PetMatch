@@ -19,6 +19,7 @@ ext.versions = [
     'rxJava2'           : '2.2.2',
 	'rxKotlin'          : '2.3.0',
 	'targetSdk'         : 26,
+	'timber'			: '4.7.1'
 ]
 
 ext.libs = [
@@ -52,6 +53,7 @@ ext.libs = [
 	    'annotation'		: "javax.annotations:jsr250-api:$versions.javaXAnnotation",
 		'inject'			: "javax.inject:javax.inject:1"
 	],
+	'jsr305'				: "com.google.code.findbugs:jsr305:3.0.2",
 	'kotlin'	: [
 		'stdlib' : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin",
 		'reflect' : "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin"
@@ -67,7 +69,8 @@ ext.libs = [
 	'retrofitRxAdapter' 		: "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
 	'rxAndroid2'				: "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid2",
 	'rxJava2'					: "io.reactivex.rxjava2:rxjava:$versions.rxJava2",
-	'rxKotlin'					: "io.reactivex.rxjava2:rxkotlin:$versions.rxKotlin"
+	'rxKotlin'					: "io.reactivex.rxjava2:rxkotlin:$versions.rxKotlin",
+	'timber'					: "com.jakewharton.timber:timber:$versions.timber"
 ]
 
 ext.projectLibs = [
